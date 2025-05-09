@@ -1,0 +1,15 @@
+import re
+import email.utils
+
+# Define the regex pattern for a valid email
+pattern = re.compile(r'^[a-zA-Z][\w\.\-]*@[a-zA-Z]+\.[a-zA-Z]{1,3}$')
+
+# Read number of email entries
+n = int(input())
+
+for _ in range(n):
+    full_input = input()
+    name, email_addr = email.utils.parseaddr(full_input)
+
+    if pattern.match(email_addr):
+        print(full_input)
