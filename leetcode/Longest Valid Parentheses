@@ -1,0 +1,12 @@
+class Solution(object):
+    def longestValidParentheses(self, s):
+        stk, ans = [-1], 0
+        for i in range(len(s)):
+            if s[i] == '(':
+                stk.append(i)
+            elif len(stk) ==1:
+                stk[0]=i
+            else:
+                stk.pop()
+                ans = max(ans, i-stk[-1])
+        return ans
