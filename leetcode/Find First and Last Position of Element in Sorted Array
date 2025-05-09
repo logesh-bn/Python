@@ -1,0 +1,18 @@
+class Solution(object):
+    def searchRange(self, nums, target):
+        arr = []
+        count = nums.count(target)
+        if count == 0:
+            return [-1,-1]
+        arr.append(nums.index(target))
+        nums = nums[::-1]
+        val = nums.index(target)
+        newval = len(nums) - val - 1
+        arr.append(newval)
+        return arr
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        
